@@ -1,3 +1,5 @@
+'use strict';
+
 // const day = 'wednesday';
 
 // switch(day) {
@@ -88,3 +90,56 @@
 // : console.log('The bill was ' + bill + ' ' + ', the tip was ' + bill*.20 + ', and the total value ' + bill*1.20);
 
 //-------------------------------------------------------------------------------------------------
+// let vs var
+
+// let is blocked scope, var is function scoped
+// var gets hoisted (stored in memory, but not yet defined) - let does not get hoisted
+
+// const vs let 
+// const cannot mutate what's been defined, but can still modify object elements such as elements in array
+// let can be mutated
+
+// const c = [1,2];
+// c.push(3);
+// console.log(c);
+
+
+// let x = function x (){
+    
+//     if (true) {
+//         console.log(v)
+//         console.log(l)
+//         var v = 2;
+//         let l = 1;
+//     }
+// }
+// x();
+
+//-------------------------------------------------------------------------------------------------
+// Arrow functions
+
+// var getA = function(a) {
+//     return a;
+// };
+
+// let getA = a => a; // if return with 1 line then 'return' can be omitted
+
+// let getB = b => {return b}; // can be rewritten as - let getB = b => (b)
+// console.log(getB(2))
+
+
+// let a = 4
+
+// let square = () => {return a*a};
+
+// console.log(square()) // can define variable 'a' outside of function and still use it
+
+var n = [1,2,3];
+
+var x = function (...n) {
+    console.log(n)
+    console.log(n[1])
+}
+
+x(1,2,3) // => 2
+x(n) //  => undefined , if n = [1,2,3], (...n) will take that n and put it inside another array => [[1,2,3]]
