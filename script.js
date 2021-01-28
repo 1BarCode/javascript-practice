@@ -134,12 +134,17 @@
 
 // console.log(square()) // can define variable 'a' outside of function and still use it
 
-var n = [1,2,3];
+// var n = [1,2,3];
 
-var x = function (...n) {
-    console.log(n)
-    console.log(n[1])
-}
+// var x = function (...n) {
+//     console.log(n)
+//     console.log(n[1])
+// }
 
-x(1,2,3) // => 2
-x(n) //  => undefined , if n = [1,2,3], (...n) will take that n and put it inside another array => [[1,2,3]]
+// x(1,2,3) // => 2
+// x(n) //  => undefined , if n = [1,2,3], (...n) will take that n and put it inside another array => [[1,2,3]]
+
+//-------------------------------------------------------------------------------------------------
+// Function Declaration vs Function Expression
+
+// Function Declaration 
