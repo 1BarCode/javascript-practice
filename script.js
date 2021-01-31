@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // const day = 'wednesday';
 
@@ -24,7 +24,7 @@
 //         console.log('Enjoy the weekend');
 //         break;
 //     default:
-//         console.log('Not a valid day')                    
+//         console.log('Not a valid day')
 // }
 
 // if (day === 'monday') {
@@ -95,7 +95,7 @@
 // let is blocked scope, var is function scoped
 // var gets hoisted (stored in memory, but not yet defined) - let does not get hoisted
 
-// const vs let 
+// const vs let
 // const cannot mutate what's been defined, but can still modify object elements such as elements in array
 // let can be mutated
 
@@ -103,9 +103,8 @@
 // c.push(3);
 // console.log(c);
 
-
 // let x = function x (){
-    
+
 //     if (true) {
 //         console.log(v)
 //         console.log(l)
@@ -127,7 +126,6 @@
 // let getB = b => {return b}; // can be rewritten as - let getB = b => (b)
 // console.log(getB(2))
 
-
 // let a = 4
 
 // let square = () => {return a*a};
@@ -147,4 +145,64 @@
 //-------------------------------------------------------------------------------------------------
 // Function Declaration vs Function Expression
 
-// Function Declaration 
+// Function Declaration
+
+//-------------------------------------------------------------------------------------------------
+// Scopes
+// Global Scope vs Function Scope vs Block Scope(ES6)
+
+// Global Scope: Outside of any function or block & Variables declared in global scope are accessible everywhere
+
+// Function Scope: Variables are accessible only inside function, NOT outside - a.k.a. local scope
+
+// Block Scope (ES6): Variables are accessible only inside block (block scoped)
+// This only applies to let and const variables
+// Functions are also blocked scoped (only in strict mode - which should be used anyways
+// Just like with let and const - This means that functions declared inside a block is only accessible inside that block
+
+// if (true) {
+//   var millenial = "Hi, I'm 'var' and I can be accessed";
+//   const food = "Avocado";
+// }
+
+// function calcAge(birthYear) {
+//   var now = 2037;
+//   const myStr = "I cannot be accessed";
+//   const age = now - birthYear;
+//   return age;
+// }
+
+// console.log(millenial);
+
+// console.log(now);
+
+// console.log(food);
+
+// console.log(myStr);
+
+// More Examples
+
+const myName = "Sam";
+
+function first() {
+  const age = 27;
+
+  if (age >= 27) {
+    const decade = 2; // confined to block scope
+    var millenial = true; // not confined to block scope
+  }
+
+  function second() {
+    const job = "engineer";
+
+    console.log(`${myName} is a ${age}-old ${job}`);
+  }
+
+  second();
+  console.log(millenial); // not confined to block scope
+  console.log(decade); // confined to block
+}
+
+first();
+
+// 'var' is function scoped
