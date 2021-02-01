@@ -210,27 +210,43 @@
 //-------------------------------------------------------------------------------------------------
 // Scope More Practical Examples
 
-function calcAge(birthYear) {
-  const age = 2037 - birthYear;
-  console.log(firstName); // const defined in global scope so it can be accessed
+// function calcAge(birthYear) {
+//   const age = 2037 - birthYear;
+//   console.log(firstName); // const defined in global scope so it can be accessed
 
-  function printAge() {
-    const output = `${firstName}, you are ${age}, born in ${birthYear}`;
-    console.log(output);
+//   function printAge() {
+//     const output = `${firstName}, you are ${age}, born in ${birthYear}`;
+//     console.log(output);
 
-    if (birthYear >= 1981 && birthYear <= 1996) {
-      var millenial = true;
-      //    firstName = 'Steven' - reassign variables of outer scope is okay if it's 'let' var.
-      const firstName = "Steven"; // this creates a new variable rather than reassigning
-      const str = `Oh, and you're a millenial, ${firstName}`;
-      console.log(str);
-    }
-  }
-  printAge();
+//     if (birthYear >= 1981 && birthYear <= 1996) {
+//       var millenial = true;
+//       //    firstName = 'Steven' - reassign variables of outer scope is okay if it's 'let' var.
+//       const firstName = "Steven"; // this creates a new variable rather than reassigning
+//       const str = `Oh, and you're a millenial, ${firstName}`;
+//       console.log(str);
+//     }
+//   }
+//   printAge();
 
-  return age;
-}
+//   return age;
+// }
 
-const firstName = "Sam";
-calcAge(1991);
-console.log(firstName);
+// const firstName = "Sam";
+// calcAge(1991);
+// console.log(firstName);
+
+//-------------------------------------------------------------------------------------------------
+// Hoisting
+// Hoisting: Makes some types of variables accessible/ usable in the code before declared
+// Before execution, code is scanned for variable declarations, and for each variable, a new
+// property is created in the variable environment object
+
+// console.log(myVar); // hoisted and assigned 'undefined'
+// console.log(myLet); // not hoisted (technically yes, but placed in Temp dead zone giving uninitialized)
+// console.log(myConst); // not hoisted, same as let
+
+// var myVar = "Hi";
+
+// let myLet = "Jack";
+
+// const myConst = "Bob";
