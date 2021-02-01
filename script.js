@@ -182,27 +182,55 @@
 
 // More Examples
 
-const myName = "Sam";
+// const myName = "Sam";
 
-function first() {
-  const age = 27;
+// function first() {
+//   const age = 27;
 
-  if (age >= 27) {
-    const decade = 2; // confined to block scope
-    var millenial = true; // not confined to block scope
-  }
+//   if (age >= 27) {
+//     const decade = 2; // confined to block scope
+//     var millenial = true; // not confined to block scope
+//   }
 
-  function second() {
-    const job = "engineer";
+//   function second() {
+//     const job = "engineer";
 
-    console.log(`${myName} is a ${age}-old ${job}`);
-  }
+//     console.log(`${myName} is a ${age}-old ${job}`);
+//   }
 
-  second();
-  console.log(millenial); // not confined to block scope
-  console.log(decade); // confined to block
-}
+//   second();
+//   console.log(millenial); // not confined to block scope
+//   console.log(decade); // confined to block
+// }
 
-first();
+// first();
 
 // 'var' is function scoped
+
+//-------------------------------------------------------------------------------------------------
+// Scope More Practical Examples
+
+function calcAge(birthYear) {
+  const age = 2037 - birthYear;
+  console.log(firstName); // const defined in global scope so it can be accessed
+
+  function printAge() {
+    const output = `${firstName}, you are ${age}, born in ${birthYear}`;
+    console.log(output);
+
+    if (birthYear >= 1981 && birthYear <= 1996) {
+      var millenial = true;
+      //    firstName = 'Steven' - reassign variables of outer scope is okay if it's 'let' var.
+      const firstName = "Steven"; // this creates a new variable rather than reassigning
+      const str = `Oh, and you're a millenial, ${firstName}`;
+      console.log(str);
+    }
+  }
+  printAge();
+
+  return age;
+}
+
+const firstName = "Sam";
+calcAge(1991);
+console.log(firstName);
