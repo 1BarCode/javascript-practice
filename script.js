@@ -250,3 +250,78 @@
 // let myLet = "Jack";
 
 // const myConst = "Bob";
+
+//-------------------------------------------------------------------------------------------------
+// 'this' keyword
+// special varible that is created for every execution context (every function). Takes the value of
+// (points to) the 'owner' of the function in which the this keyword is used
+
+// in a method, this = <object that is calling the method>
+
+// const sam = {
+//   name: "Sam",
+//   year: 1990,
+//   calcAge: function () {
+//     return 2037 - this.year;
+//   },
+// };
+
+// console.log(sam.calcAge());
+
+// in a simple function call, this = undefined (in strict mode) - otherwise it points to window object in browser
+
+// arrow function, this = <this of surrounding function (lexical this)> - arrow function don't have its own 'this'
+// 'this' will be the 'this' keyword of surrounding lexical function
+
+// if function is call as event listener then, this = <DOM element that the handler is attached to>
+
+// *this will not point to the function itself and also NOT to its variable environment
+
+console.log(this); // 'this' in the global scope by itself is the window object
+
+// const calcAge = function (birthYear) {
+//   console.log(2037 - birthYear);
+//   console.log(this); // 'this' is its own 'this' keyword
+// };
+
+// calcAge(1991); // 'undefined'
+
+// const calcAge = (birthYear) => {
+//   console.log(2037 - birthYear);
+//   console.log(this); // 'this' is the lexical 'this' keyword of its parent scope which is window
+// };
+
+// calcAge(1991); // -> window - 'this' keyword of its parent scope - window is the 'this' keyword
+
+// this keyword in an object
+
+// const sam = {
+//   year: 1991,
+//   calcAge: function () {
+//     console.log(this);
+//   },
+// };
+
+// sam.calcAge();
+
+// const matilda = {
+//   year: 2017,
+// };
+
+// matilda.calcAge = sam.calcAge;
+// matilda.calcAge(); // 20 -> 'this' keyword will always refer to the object that calls it (matilda)
+
+//*** functions create it's own Execution Context and its own 'this' ***
+
+const jonas = {
+  firstName: "Jonas",
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+  },
+
+  greet: () => console.log(`Hey ${this.firstName}`),
+};
+
+jonas.greet(); // 'this' = undefined, since arrow function doesn't have its own 'this' keyword it uses
