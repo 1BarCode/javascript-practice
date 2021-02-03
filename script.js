@@ -253,8 +253,8 @@
 
 //-------------------------------------------------------------------------------------------------
 // 'this' keyword
-// special varible that is created for every execution context (every function). Takes the value of
-// (points to) the 'owner' of the function in which the this keyword is used
+// *** special varible that is created for every execution context (every function). Takes the value of
+// (points to) the 'owner' of the function in which the this keyword is used ***********************
 
 // in a method, this = <object that is calling the method>
 
@@ -268,16 +268,18 @@
 
 // console.log(sam.calcAge());
 
-// in a simple function call, this = undefined (in strict mode) - otherwise it points to window object in browser
+// 1. in a simple function call, this = undefined (in strict mode) - otherwise it points to window object in browser
 
-// arrow function, this = <this of surrounding function (lexical this)> - arrow function don't have its own 'this'
+// 2. arrow function, this = <this of surrounding function (lexical this)> - arrow function don't have its own 'this'
 // 'this' will be the 'this' keyword of surrounding lexical function
 
-// if function is call as event listener then, this = <DOM element that the handler is attached to>
+// 3. if function is call as event listener then, this = <DOM element that the handler is attached to>
 
 // *this will not point to the function itself and also NOT to its variable environment
 
-console.log(this); // 'this' in the global scope by itself is the window object
+//-------------------------------------------------------------------------------------------------
+
+// console.log(this); // 'this' in the global scope by itself is the window object
 
 // const calcAge = function (birthYear) {
 //   console.log(2037 - birthYear);
@@ -313,15 +315,41 @@ console.log(this); // 'this' in the global scope by itself is the window object
 
 //*** functions create it's own Execution Context and its own 'this' ***
 
-const jonas = {
-  firstName: "Jonas",
-  year: 1991,
-  calcAge: function () {
-    console.log(this);
-    console.log(2037 - this.year);
-  },
+// const jonas = {
+//   firstName: "Jonas",
+//   year: 1991,
+//   calcAge: function () {
+//     console.log(this);
+//     console.log(2037 - this.year);
+//   },
 
-  greet: () => console.log(`Hey ${this.firstName}`),
+//   greet: () => console.log(`Hey ${this.firstName}`),
+// };
+
+// jonas.greet(); // 'this' = undefined, since arrow function doesn't have its own 'this' keyword it uses
+
+// As good practice, don't use arrow functions for methods, 'this' keyword will refer to lexical scope instead of the object calling it
+
+// jonas.calcAge();
+
+//-------------------------------------------------------------------------------------------------
+
+// CLOSURES:
+// Any function always has access to variable environment of the execution context in which the function was created
+// Vari environ (including arguments) attached to the function, exactly as it was at the time
+// and place the function was created
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
 };
 
-jonas.greet(); // 'this' = undefined, since arrow function doesn't have its own 'this' keyword it uses
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
