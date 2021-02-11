@@ -356,14 +356,59 @@
 
 // more examples of closures
 
-let f;
+// let f;
 
-const g = function () {
-  const a = 23;
-  f = function () {
-    console.log(a * 2);
-  };
-};
+// const g = function () {
+//   const a = 23;
+//   f = function () {
+//     console.log(a * 2);
+//   };
+// };
 
-g();
-f(); // Any function always has access to variable environment of the execution context in which the function was created
+// g();
+// f(); // Any function always has access to variable environment of the execution context in which the function was created
+
+//-------------------------------------------------------------------------------------------------
+
+// Arrays
+
+let arr = ["a", "b", "c", "d", "e"];
+
+// SLICE - creates a copy
+
+// console.log(arr.slice(2)); // returns new array from index position to end
+
+// console.log(arr.slice(2, 4)); // returns new array from index position to end index (but not including)
+
+// console.log(arr.slice(1, -4)); // returns new array from index position to end index (but not including)
+
+// console.log(arr.slice()); // return copy of new array
+
+// console.log([...arr]); // return copy of new array
+
+// SPLICE - same as SLICE but mutates original - extracts those elements from original array
+
+// console.log(arr.splice(0));
+
+// console.log(arr.splice(-1));
+
+// console.log(arr.splice(1, 4)); // (position, how many total elements after/including)
+
+// console.log(arr);
+
+// REVERSE
+
+const arr2 = ["j", "i", "h", "g", "f"];
+
+// console.log(arr2.reverse()); // reverse and mutate original
+// console.log(arr2);
+
+// CONCAT - add arrays together
+
+// const letters = arr.concat(arr2);
+// console.log(letters);
+// console.log([...arr, ...arr2]);
+
+// JOIN
+
+console.log(letters.join(" - "));
