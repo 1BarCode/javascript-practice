@@ -372,7 +372,7 @@
 
 // Arrays
 
-let arr = ["a", "b", "c", "d", "e"];
+// let arr = ["a", "b", "c", "d", "e"];
 
 // SLICE - creates a copy
 
@@ -398,17 +398,41 @@ let arr = ["a", "b", "c", "d", "e"];
 
 // REVERSE
 
-const arr2 = ["j", "i", "h", "g", "f"];
+// const arr2 = ["j", "i", "h", "g", "f"];
 
-// console.log(arr2.reverse()); // reverse and mutate original
-// console.log(arr2);
+// // console.log(arr2.reverse()); // reverse and mutate original
+// // console.log(arr2);
 
-// CONCAT - add arrays together
+// // CONCAT - add arrays together
 
-// const letters = arr.concat(arr2);
-// console.log(letters);
-// console.log([...arr, ...arr2]);
+// // const letters = arr.concat(arr2);
+// // console.log(letters);
+// // console.log([...arr, ...arr2]);
 
-// JOIN
+// // JOIN
 
-console.log(letters.join(" - "));
+// console.log(letters.join(" - "));
+
+//-------------------------------------------------------------------------------------------------
+
+// forEach loop
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log("---- forEach ----");
+
+movements.forEach(function (movement) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+});
